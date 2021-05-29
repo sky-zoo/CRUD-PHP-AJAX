@@ -1,0 +1,22 @@
+CREATE DATABASE crud_ajax;
+
+USE crud_ajax;
+
+CREATE TABLE usuarios(
+
+    id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    usuario varchar(255) NOT NULL,
+    email varchar(255) NOT NULL UNIQUE,
+    pass varchar(255) NOT NULL
+
+);
+
+CREATE TABLE tareas(
+
+    id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    titulo varchar(255) NOT NULL,
+    descripcion varchar(255) NOT NULL,
+    id_usuario int NOT NULL,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
+
+);

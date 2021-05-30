@@ -1,6 +1,12 @@
 <?php
 
     session_start();
+    
+    if(count($_SESSION) > 0){
+        header("Location: http://localhost/CRUD%20AJAX%20PHP/notas.php");
+        exit();
+    }
+
     require_once "constantes.php";
 ?>
 <!DOCTYPE html>
@@ -26,11 +32,11 @@
             <h1>Lista de Tareas</h1>
             <p>
                 Para guardar tus tareas,
-                <a class="registro" href="#" onclick="cargarDoc(this)">
+                <a href="http://localhost/CRUD%20AJAX%20PHP/registro.php">
                 registrate
                 </a> o
                 
-                <a class="login" href="#" onclick="cargarDoc(this)">
+                <a href="http://localhost/CRUD%20AJAX%20PHP/login.php">
                 iniciá sesión
                 </a>
                 .
@@ -41,24 +47,4 @@
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script>
-    const cargarDoc = (elemento)=>{
-        let xhr = new XMLHttpRequest();
-        let ruta = elemento.getAttribute("class");
-        // console.log(ruta)
-        xhr.onreadystatechange = function(){
-
-            if(this.readyState == 4 && this.status == 200){
-                document.body.innerHTML = this.responseText;
-            }
-
-        }
-
-        
-
-        xhr.open("GET", `${ruta}.php` , true);
-        xhr.send();
-
-    }
-</script>
 </html>

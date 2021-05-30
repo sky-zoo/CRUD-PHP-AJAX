@@ -18,6 +18,9 @@
 
         header("Location: http://localhost/CRUD%20AJAX%20PHP/login.php");
         exit();
+    }else{
+        header("Location: http://localhost/CRUD%20AJAX%20PHP/");
+        exit();
     }
 
 

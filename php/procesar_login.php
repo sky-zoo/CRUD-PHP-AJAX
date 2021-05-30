@@ -2,8 +2,6 @@
 
     if(isset($_POST["enviar"])){
 
-        var_dump($_POST);
-
         require_once "funciones.php";
 
         $conexion = conectarBBDD();
@@ -15,13 +13,29 @@
 
         $consulta->execute([$email]);
         $resultado = $consulta->fetch();
-        echo "RESULTADO: ";
-        var_dump($resultado);
 
-        // if(count($resultado) > 0 &&){
+        if(password_verify($pass, $resultado["pass"])){
+            session_start();
+            $_SESSION["usuario"] = $resultado["usuario"];
+            $_SESSION["id"] = $resultado["id"];
+            header("Location: http://localhost/CRUD%20AJAX%20PHP/notas.php");
+            exit();
 
-        // }
+        }
+        else if($resultado == false){
+            header("Location: http://localhost/CRUD%20AJAX%20PHP/login.php");
+            exit();
+        }
+        else{
+            header("Location: http://localhost/CRUD%20AJAX%20PHP/login.php");
+            exit();
+        }
 
+        
+
+    }else{
+        header("Location: http://localhost/CRUD%20AJAX%20PHP/");
+        exit();
     }
 
 ?>

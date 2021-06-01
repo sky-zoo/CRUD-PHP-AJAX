@@ -25,26 +25,26 @@
                               </li>
 
                               <li>
-                                <a href="<?php echo URL_PAGINA; ?>pagina_crear_nota.php">
+                                <a href="'. URL_PAGINA .'pagina_crear_nota.php">
                                     Crear nota
                                 </a>
                               </li>
 
                               <li>
-                                <a href="<?php echo URL_PAGINA; ?>php/cerrar_sesion.php">
+                                <a href="'. URL_PAGINA .'php/cerrar_sesion.php">
                                     Cerrar sesión
                                 </a>
                               </li>';
                     }else{
 
                         echo '<li>
-                                <a href="<?php echo URL_PAGINA; ?>registro.php">
+                                <a href="'. URL_PAGINA .'registro.php">
                                     Registrate
                                 </a>
                               </li>
 
                               <li>
-                                <a href="<?php echo URL_PAGINA; ?>login.php">
+                                <a href="' URL_PAGINA'>login.php">
                                     Iniciar Sesion
                                 </a>
                               </li>';

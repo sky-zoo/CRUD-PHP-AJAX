@@ -30,7 +30,7 @@
 
     <div class="container">
         <div class="jumbotron text-center">
-            <h1>Crear Nota</h1>
+            <h1>Crear Tarea</h1>
         </div>
         <div class="jumbotron">
             
@@ -58,24 +58,5 @@
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script>
-    const cargarDoc = (elemento)=>{
-        let xhr = new XMLHttpRequest();
-        let ruta = elemento.getAttribute("class");
-        // console.log(ruta)
-        xhr.onreadystatechange = function(){
 
-            if(this.readyState == 4 && this.status == 200){
-                document.body.innerHTML = this.responseText;
-            }
-
-        }
-
-        
-
-        xhr.open("GET", `${ruta}.php` , true);
-        xhr.send();
-
-    }
-</script>
 </html>

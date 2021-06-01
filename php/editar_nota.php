@@ -9,13 +9,11 @@
 
     require_once "funciones.php";
 
-    var_dump($_POST);
-
     $conexion = conectarBBDD();
     $query = "UPDATE tareas SET titulo = ?, descripcion = ? WHERE id = ?";
 
     $consulta = $conexion->prepare($query);
-    $consulta->execute([$_POST["titulo"], $_POST["descripcion"], $_GET["id"]]);
+    $consulta->execute([$_POST["titulo"], $_POST["descripcion"], $_GET["id"] ]);
 
 
     header("Location: http://localhost/CRUD%20AJAX%20PHP/");

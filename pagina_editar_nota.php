@@ -44,7 +44,7 @@
                 <div class="jumbotron">
                     <h1 class="text-center">Editar Nota</h1>
                     
-                    <form action="php/editar_nota.php?id=<?php echo $resultado["id"];?>" method="post">
+                    <form action="php/editar_nota.php?id=<?php echo $resultado["id"]; ?>" method="post">
 
                         
 
@@ -66,7 +66,7 @@
 
                     </form>
 
-            </div>
+                </div>
             </div>
             <div class="col-sm-3"></div>
         </div>
@@ -76,9 +76,4 @@
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script>
-
-
-
-</script>
 </html>

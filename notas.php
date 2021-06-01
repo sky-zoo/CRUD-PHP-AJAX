@@ -19,7 +19,7 @@
 
     <title><?php echo TITULO; ?></title>
 </head>
-<body>
+<body onload="mostrarNotas()">
     <!-- IMPLEMENTAR UN DETECTOR DE SI UN MAIL YA ESTA EN USO CON AJAX -->
     <?php
     
@@ -33,85 +33,8 @@
         </div>
 
         <div class="jumbotron">
-            <div class="container">
-                <div class="row">
-                    <?php
-
-                        $conexion = conectarBBDD();
-
-                        $query = "SELECT * FROM tareas WHERE id_usuario = ?";
-                        $consulta = $conexion->prepare($query);
-                        $consulta->execute( [$_SESSION["id"] ]);
-                        $resultados = $consulta->fetchAll();
-
-                        if(count($resultados) == 0){
-                            echo '<h2 class="text-center">No tenés ninguna tarea todavía.</h2>';
-                        }else{
-
-                            for($i = 0; $i < count($resultados); $i++){
-                                if($i != 0 && $i % 4 == 0){
-                                    // Si la nota es multiplo de 4, hace esto
-                                    echo '</div>
-                                        <div class="row">
-                                            <div class="col-md-3">
-    
-                                                <div class="panel panel-primary">
-                                                    <div class="panel-heading" style="word-wrap: break-word;">
-                                                        ' . $resultados[$i]["titulo"] . '
-                                                    </div>
-                            
-                                                    <div class="panel-body text-justify" style="word-wrap: break-word;">
-                                                        ' . $resultados[$i]["descripcion"] . '
-                                                    </div>
-    
-                                                    <div>
-                                                
-                                                        <div class="text-center bg-info">
-                                                            <a href="pagina_editar_nota.php?id='. $resultados[$i]["id"] .'">Editar</a>
-                                                        </div>
-    
-                                                        <div class="text-center bg-danger">
-                                                            <a href="php/borrar_nota.php?id='. $resultados[$i]["id"] .'">Borrar</a>
-                                                        </div>
-                                                
-                                                    </div>
-                            
-                                                </div>
-    
-                                            </div>
-                                        ';
-                                }else{
-                                    echo '<div class="col-md-3">
-    
-                                            <div class="panel panel-primary">
-                                                <div class="panel-heading" style="word-wrap: break-word;">
-                                                    ' . $resultados[$i]["titulo"] . '
-                                                </div>
-                        
-                                                <div class="panel-body" style="word-wrap: break-word;">
-                                                    ' . $resultados[$i]["descripcion"] . '
-                                                </div>
-                        
-                                                <div>
-                                                
-                                                    <div class="text-center bg-info">
-                                                        <a href="pagina_editar_nota.php?id='. $resultados[$i]["id"] .'">Editar</a>
-                                                    </div>
-    
-                                                    <div class="text-center bg-danger">
-                                                        <a href="php/borrar_nota.php?id='. $resultados[$i]["id"] .'">Borrar</a>
-                                                    </div>
-                                                
-                                                </div>
-                                            </div>
-    
-                                        </div>';
-                                }
-                            }
-
-                        }
-
-                    ?>
+            <div id="tabla" class="container">
+            </div>
         </div>
     </div>
     
@@ -119,23 +42,124 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script>
-    const cargarDoc = (elemento)=>{
+
+    
+    
+    const borrar = (elemento)=>{
         let xhr = new XMLHttpRequest();
-        let ruta = elemento.getAttribute("class");
-        // console.log(ruta)
+        let id = elemento.getAttribute("id");
+        
         xhr.onreadystatechange = function(){
 
             if(this.readyState == 4 && this.status == 200){
-                document.body.innerHTML = this.responseText;
+                mostrarNotas();
+            }
+
+        }        
+
+        xhr.open("POST", `php/borrar_nota.php?id=${id}` , true);
+        xhr.send();
+
+    }
+
+    
+    const mostrarNotas = ()=>{
+
+        let xhr = new XMLHttpRequest();
+        let tabla = document.getElementById("tabla");
+
+        let notas;
+
+        xhr.onreadystatechange = function(){
+            
+            if(this.readyState == 4 && this.status == 200){
+                notas = JSON.parse(this.responseText);
+                let numeroFila = 0;
+                
+
+                if(notas.length == 0){
+                    tabla.innerHTML = `<h2 class="text-center">No tenés ninguna tarea todavía</h2>`;
+                
+                }else{
+
+                    tabla.innerHTML = "";
+                    
+                    for(let i = 0; i < notas.length; i++){
+
+                        if(i % 4 == 0){
+                            // Si no hay una fila, entonces creo una
+                            numeroFila++;
+                            tabla.innerHTML += `<div id=${numeroFila} class="row">
+                                                    <div class="col-md-3">
+                                                        <div class="panel panel-primary">
+
+                                                            <div class="panel-heading text-center" style="word-wrap: break-word;">
+                                                                ${notas[i]["titulo"]}
+                                                            </div>
+                                    
+                                                            <div class="panel-body text-justify" style="word-wrap: break-word;">
+                                                                ${notas[i]["descripcion"]}
+                                                            </div>
+
+                                                            <div>
+                                                        
+                                                                <div class="text-center bg-info">
+                                                                    <a href="pagina_editar_nota.php?id=${notas[i]["id"]}">Editar</a>
+                                                                </div>
+
+                                                                <div class="text-center bg-danger">
+                                                                    <a id=${notas[i]["id"]} onclick="borrar(this)">Borrar</a>
+                                                                </div>
+                                                        
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>`;
+                                                
+
+                        }else{
+                            // Si hay una fila, entonces relleno las filas poniendo notas
+                            let filaAInsertar = document.getElementById(`${numeroFila}`);
+                            filaAInsertar.innerHTML += `<div class="col-md-3">
+                                                            <div class="panel panel-primary">
+                                                                <div class="panel-heading text-center" style="word-wrap: break-word;">
+                                                                    ${notas[i]["titulo"]}
+                                                                </div>
+                                            
+                                                                <div class="panel-body text-justify" style="word-wrap: break-word;">
+                                                                    ${notas[i]["descripcion"]}
+                                                                </div>
+
+                                                                <div>
+                                                                
+                                                                    <div class="text-center bg-info">
+                                                                        <a href="pagina_editar_nota.php?id=${notas[i]["id"]}">Editar</a>
+                                                                    </div>
+
+                                                                    <div class="text-center bg-danger">
+                                                                        <a id=${notas[i]["id"]} onclick="borrar(this)">Borrar</a>
+                                                                    </div>
+                                                            
+                                                                </div>
+
+                                                            </div>
+                                                        </div>`;
+                                                
+
+                        }
+
+                    }
+
+                }
+                
             }
 
         }
 
-        
-
-        xhr.open("GET", `${ruta}.php` , true);
+        xhr.open("GET", "php/mostrar_notas.php", true);
         xhr.send();
-
     }
+
 </script>
 </html>

@@ -1,7 +1,7 @@
 <?php
 
     if(isset($_POST["enviar"])){
-
+        include_once "../constantes.php";
         require_once "funciones.php";
 
         $conexion = conectarBBDD();

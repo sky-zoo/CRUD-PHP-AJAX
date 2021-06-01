@@ -1,6 +1,7 @@
 <?php
 
     session_start();
+    include_once "../constantes.php";
 
     if(count($_SESSION) == 0){
         header("Location: ". URL_PAGINA);

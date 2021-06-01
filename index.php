@@ -3,7 +3,7 @@
     session_start();
     
     if(count($_SESSION) > 0){
-        header("Location: http://localhost/CRUD%20AJAX%20PHP/notas.php");
+        header("Location: ". URL_PAGINA ."notas.php");
         exit();
     }
 
@@ -32,11 +32,11 @@
             <h1>Lista de Tareas</h1>
             <p>
                 Para guardar tus tareas,
-                <a href="http://localhost/CRUD%20AJAX%20PHP/registro.php">
+                <a href="<?php echo URL_PAGINA; ?>registro.php">
                 registrate
                 </a> o
                 
-                <a href="http://localhost/CRUD%20AJAX%20PHP/login.php">
+                <a href="<?php echo URL_PAGINA; ?>login.php">
                 iniciá sesión
                 </a>
                 .

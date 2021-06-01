@@ -3,7 +3,7 @@
     session_start();
 
     if(count($_SESSION) == 0){
-        header("Location: http://localhost/CRUD%20AJAX%20PHP/notas.php");
+        header("Location: ". URL_PAGINA ."notas.php");
         exit();
     }
 

@@ -3,7 +3,7 @@
     session_start();
 
     if(count($_SESSION) == 0){
-        header("Location: http://localhost/CRUD%20AJAX%20PHP/");
+        header("Location: ". URL_PAGINA);
         exit();
     }
 
@@ -16,7 +16,7 @@
     $consulta->execute([$_POST["titulo"], $_POST["descripcion"], $_GET["id"] ]);
 
 
-    header("Location: http://localhost/CRUD%20AJAX%20PHP/");
+    header("Location: ". URL_PAGINA);
     exit();
 
 ?>

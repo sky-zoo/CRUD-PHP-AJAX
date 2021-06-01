@@ -3,7 +3,7 @@
 function conectarBBDD(){
     try{
 
-        $valores = require_once $_SERVER["DOCUMENT_ROOT"] . "/CRUD AJAX PHP/config.php";
+        $valores = require_once $_SERVER["DOCUMENT_ROOT"] . "/config.php";
 
         $opciones = [PDO::ATTR_EMULATE_PREPARES => false,
                      PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,

@@ -3,7 +3,7 @@
     session_start();
 
     if(count($_SESSION) > 0){
-        header("Location: http://localhost/CRUD%20AJAX%20PHP/notas.php");
+        header("Location: ". URL_PAGINA ."notas.php");
         exit();
     }
 
@@ -65,7 +65,7 @@
                 <div class="jumbotron">
                 <p class="text-center">
                     ¿No tenés una cuenta?
-                    <a href="http://localhost/CRUD%20AJAX%20PHP/registro.php">Registrate acá</a>
+                    <a href="<?php echo URL_PAGINA; ?>registro.php">Registrate acá</a>
                 </p>
             </div>
             </div>

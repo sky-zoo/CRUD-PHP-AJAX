@@ -7,7 +7,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="http://localhost/CRUD%20AJAX%20PHP/">
+            <a class="navbar-brand" href="<?php echo URL_PAGINA;?>">
                 Inicio
             </a>
             
@@ -25,26 +25,26 @@
                               </li>
 
                               <li>
-                                <a href="http://localhost/CRUD%20AJAX%20PHP/pagina_crear_nota.php">
+                                <a href="<?php echo URL_PAGINA; ?>pagina_crear_nota.php">
                                     Crear nota
                                 </a>
                               </li>
 
                               <li>
-                                <a href="http://localhost/CRUD%20AJAX%20PHP/php/cerrar_sesion.php">
+                                <a href="<?php echo URL_PAGINA; ?>php/cerrar_sesion.php">
                                     Cerrar sesión
                                 </a>
                               </li>';
                     }else{
 
                         echo '<li>
-                                <a href="http://localhost/CRUD%20AJAX%20PHP/registro.php">
+                                <a href="<?php echo URL_PAGINA; ?>registro.php">
                                     Registrate
                                 </a>
                               </li>
 
                               <li>
-                                <a href="http://localhost/CRUD%20AJAX%20PHP/login.php">
+                                <a href="<?php echo URL_PAGINA; ?>login.php">
                                     Iniciar Sesion
                                 </a>
                               </li>';

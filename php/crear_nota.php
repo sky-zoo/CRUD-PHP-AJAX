@@ -2,7 +2,7 @@
     session_start();
 
     if(count($_SESSION) == 0){
-        header("Location: http://localhost/CRUD%20AJAX%20PHP/");
+        header("Location: ". URL_PAGINA);
         exit();
     }
 
@@ -18,7 +18,7 @@
     $consulta = $conexion->prepare($query);
     $consulta->execute([$titulo, $descripcion, $id_usuario]);
 
-    header("Location: http://localhost/CRUD%20AJAX%20PHP/");
+    header("Location: ". URL_PAGINA);
     exit();
 
 ?>

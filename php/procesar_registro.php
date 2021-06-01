@@ -16,10 +16,10 @@
 
         $consulta->execute([$nombreUsuario, $pass, $email]);
 
-        header("Location: http://localhost/CRUD%20AJAX%20PHP/login.php");
+        header("Location: ". URL_PAGINA ."login.php");
         exit();
     }else{
-        header("Location: http://localhost/CRUD%20AJAX%20PHP/");
+        header("Location: ". URL_PAGINA);
         exit();
     }
 

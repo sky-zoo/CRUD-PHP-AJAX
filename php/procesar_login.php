@@ -18,23 +18,23 @@
             session_start();
             $_SESSION["usuario"] = $resultado["usuario"];
             $_SESSION["id"] = $resultado["id"];
-            header("Location: http://localhost/CRUD%20AJAX%20PHP/notas.php");
+            header("Location: ". URL_PAGINA ."notas.php");
             exit();
 
         }
         else if($resultado == false){
-            header("Location: http://localhost/CRUD%20AJAX%20PHP/login.php");
+            header("Location: ". URL_PAGINA ."login.php");
             exit();
         }
         else{
-            header("Location: http://localhost/CRUD%20AJAX%20PHP/login.php");
+            header("Location: ". URL_PAGINA ."login.php");
             exit();
         }
 
         
 
     }else{
-        header("Location: http://localhost/CRUD%20AJAX%20PHP/");
+        header("Location: ". URL_PAGINA);
         exit();
     }
 

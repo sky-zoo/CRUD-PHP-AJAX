@@ -9,7 +9,7 @@ function conectarBBDD(){
                      PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                      PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC];
 
-        $configuracionConexion = "mysql:host=" . $valores["nombreServidor"].
+        $configuracionConexion = "pgsql:host=" . $valores["nombreServidor"].
                                  ";dbname=" . $valores["nombreBBDD"] . "";
 
         $conexion = new PDO($configuracionConexion, $valores["nombreUsuario"], $valores["pass"], $opciones);

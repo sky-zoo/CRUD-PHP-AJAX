@@ -44,7 +44,7 @@
                               </li>
 
                               <li>
-                                <a href="' URL_PAGINA'>login.php">
+                                <a href="'. URL_PAGINA.'>login.php">
                                     Iniciar Sesion
                                 </a>
                               </li>';

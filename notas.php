@@ -93,12 +93,12 @@
                                                     <div class="col-md-3">
                                                         <div class="panel panel-primary">
 
-                                                            <div class="panel-heading text-center" style="word-wrap: break-word;">
-                                                                ${notas[i]["titulo"]}
+                                                            <div id="titulo" class="panel-heading text-center" style="word-wrap: break-word;">
+                                                                
                                                             </div>
                                     
-                                                            <div class="panel-body text-justify" style="word-wrap: break-word;">
-                                                                ${notas[i]["descripcion"]}
+                                                            <div id="descripcion" class="panel-body text-justify" style="word-wrap: break-word;">
+                                                                
                                                             </div>
 
                                                             <div>
@@ -116,19 +116,23 @@
                                                         </div>
                                                     </div>
                                                 </div>`;
-                                                
+                            let contenedorTitulo = document.getElementById("titulo");
+                            let contenedorDescripcion = document.getElementById("descripcion");
+
+                            contenedorTitulo.textContent = notas[i]["titulo"];
+                            contenedorDescripcion.textContent = notas[i]["descripcion"];                                                
 
                         }else{
                             // Si hay una fila, entonces relleno las filas poniendo notas
                             let filaAInsertar = document.getElementById(`${numeroFila}`);
                             filaAInsertar.textContent += `<div class="col-md-3">
                                                             <div class="panel panel-primary">
-                                                                <div class="panel-heading text-center" style="word-wrap: break-word;">
-                                                                    ${notas[i]["titulo"]}
+                                                                <div id="titulo" class="panel-heading text-center" style="word-wrap: break-word;">
+                                                                    
                                                                 </div>
                                             
-                                                                <div class="panel-body text-justify" style="word-wrap: break-word;">
-                                                                    ${notas[i]["descripcion"]}
+                                                                <div id="descripcion" class="panel-body text-justify" style="word-wrap: break-word;">
+                                                                    
                                                                 </div>
 
                                                                 <div>
@@ -145,7 +149,13 @@
 
                                                             </div>
                                                         </div>`;
-                                                
+                            let contenedorTitulo = document.getElementById("titulo");
+                            let contenedorDescripcion = document.getElementById("descripcion");
+
+
+                            contenedorTitulo.textContent = notas[i]["titulo"];
+                            contenedorDescripcion.textContent = notas[i]["descripcion"];
+
 
                         }
 

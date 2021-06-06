@@ -89,7 +89,7 @@
                         if(i % 4 == 0){
                             // Si no hay una fila, entonces creo una
                             numeroFila++;
-                            tabla.textContent += `<div id=${numeroFila} class="row">
+                            tabla.innerHTML += `<div id=${numeroFila} class="row">
                                                     <div class="col-md-3">
                                                         <div class="panel panel-primary">
 
@@ -125,7 +125,7 @@
                         }else{
                             // Si hay una fila, entonces relleno las filas poniendo notas
                             let filaAInsertar = document.getElementById(`${numeroFila}`);
-                            filaAInsertar.textContent += `<div class="col-md-3">
+                            filaAInsertar.innerHTML += `<div class="col-md-3">
                                                             <div class="panel panel-primary">
                                                                 <div id="titulo" class="panel-heading text-center" style="word-wrap: break-word;">
                                                                     

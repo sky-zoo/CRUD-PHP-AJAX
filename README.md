@@ -1,7 +1,9 @@
 # Aplicación de Notas
 Aplicación para poder guardar recordatorios/notas o eventos para realizar más tarde, la información se guarda en una base de datos.
 Cada usuario puede ver sus notas creadas y crearlas.
-La aplicación tiene una protección contra ataques de inyección SQL
+La aplicación tiene una protección contra ataques de inyección SQL y ataques XSS.
+
+[Hacé click acá para ver y probar la aplicación](https://crud-ajax-php.herokuapp.com/)
 
 ## Instalación(en local):
 
@@ -10,3 +12,4 @@ La aplicación tiene una protección contra ataques de inyección SQL
 3. Abrir un navegador web y entrar en http://localhost/phpmyadmin
 4. Buscar un boton que dice "Importar" en la barra de navegación
 5. En la seccion de "Archivos a importar", haga click en "Seleccionar archivo" y seleccione el archivo llamada "Sentencias SQL", luego hacer click en Continuar
+

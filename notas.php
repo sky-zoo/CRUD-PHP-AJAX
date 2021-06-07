@@ -20,7 +20,7 @@
     <title><?php echo TITULO; ?></title>
 </head>
 <body onload="mostrarNotas()">
-    <!-- IMPLEMENTAR UN DETECTOR DE SI UN MAIL YA ESTA EN USO CON AJAX -->
+    
     <?php
     
         require_once RUTA_NAVBAR;
@@ -93,11 +93,11 @@
                                                     <div class="col-md-3">
                                                         <div class="panel panel-primary">
 
-                                                            <div id="titulo" class="panel-heading text-center" style="word-wrap: break-word;">
+                                                            <div class="panel-heading text-center titulo" style="word-wrap: break-word;">
                                                                 
                                                             </div>
                                     
-                                                            <div id="descripcion" class="panel-body text-justify" style="word-wrap: break-word;">
+                                                            <div class="panel-body text-justify descripcion" style="word-wrap: break-word;">
                                                                 
                                                             </div>
 
@@ -116,22 +116,18 @@
                                                         </div>
                                                     </div>
                                                 </div>`;
-                            let contenedorTitulo = document.getElementById("titulo");
-                            let contenedorDescripcion = document.getElementById("descripcion");
-
-                            contenedorTitulo.textContent = notas[i]["titulo"];
-                            contenedorDescripcion.textContent = notas[i]["descripcion"];                                                
+                                                                            
 
                         }else{
                             // Si hay una fila, entonces relleno las filas poniendo notas
                             let filaAInsertar = document.getElementById(`${numeroFila}`);
                             filaAInsertar.innerHTML += `<div class="col-md-3">
                                                             <div class="panel panel-primary">
-                                                                <div id="titulo" class="panel-heading text-center" style="word-wrap: break-word;">
+                                                                <div class="panel-heading text-center titulo" style="word-wrap: break-word;">
                                                                     
                                                                 </div>
                                             
-                                                                <div id="descripcion" class="panel-body text-justify" style="word-wrap: break-word;">
+                                                                <div class="panel-body text-justify descripcion" style="word-wrap: break-word;">
                                                                     
                                                                 </div>
 
@@ -149,12 +145,12 @@
 
                                                             </div>
                                                         </div>`;
-                            let contenedorTitulo = document.getElementById("titulo");
-                            let contenedorDescripcion = document.getElementById("descripcion");
+                            // let contenedorTitulo = document.getElementById("titulo");
+                            // let contenedorDescripcion = document.getElementById("descripcion");
 
 
-                            contenedorTitulo.textContent = notas[i]["titulo"];
-                            contenedorDescripcion.textContent = notas[i]["descripcion"];
+                            // contenedorTitulo.textContent = notas[i]["titulo"];
+                            // contenedorDescripcion.textContent = notas[i]["descripcion"];
 
 
                         }

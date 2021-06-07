@@ -155,6 +155,12 @@
 
                         }
 
+                        let contenedorTitulo = document.getElementsByClassName("titulo");
+                        let contenedorDescripcion = document.getElementsByClassName("descripcion");
+
+                        contenedorTitulo[i].textContent = notas[i]["titulo"];
+                        contenedorDescripcion[i].textContent = notas[i]["descripcion"];
+
                     }
 
                 }

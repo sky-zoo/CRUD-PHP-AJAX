@@ -1,6 +1,6 @@
 # Aplicación de Notas
 Aplicación para poder guardar recordatorios/notas o eventos para realizar más tarde, la información se guarda en una base de datos, donde cada usuario puede ver sus notas creadas y crearlas.
-
+Tecnologías utilizadas: HTML5, CSS3, Bootstrap 3, MySQL, PHP y AJAX.
 La aplicación tiene una protección contra ataques de inyección SQL y ataques XSS.
 
 ![Imagen del proyecto](https://github.com/sky-zoo/CRUD-PHP-AJAX/blob/master/Captura.JPG)
